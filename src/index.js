@@ -4,6 +4,11 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+const sequelize = require("./config/database");
+
+startServer();
+
+
 const app = express();
 
 // Middlewares globales
@@ -22,3 +27,14 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🔥 Servidor corriendo en http://localhost:${PORT}`);
 });
+
+async function startServer() {
+    try {
+        await sequelize.authenticate();
+        console.log("Conexión a PostgreSQL establecida correctamente.");
+        app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
+    } catch (error) {
+        console.error("Error al conectar con PostgreSQL:", error);
+    }
+}
+
