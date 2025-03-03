@@ -1,6 +1,6 @@
 require("dotenv").config();
 const sequelize = require("./database");
-const Establishment = require("../models/Establishment");
+const Establishment = require("../domain/models/Establishment");
 
 
 async function syncDatabase() {
