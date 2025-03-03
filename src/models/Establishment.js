@@ -16,7 +16,7 @@ const Establishment = sequelize.define("Establishment", {
     },
     description: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     address: {
         type: DataTypes.STRING,
@@ -45,12 +45,12 @@ const Establishment = sequelize.define("Establishment", {
     },
     latitude: {
         type: DataTypes.DECIMAL(10, 8),
-        allowNull: false
+        allowNull: true
 
     },
     longitude: {
         type: DataTypes.DECIMAL(11, 8),
-        allowNull: false
+        allowNull: true
 
     },
     imageUrl: {
